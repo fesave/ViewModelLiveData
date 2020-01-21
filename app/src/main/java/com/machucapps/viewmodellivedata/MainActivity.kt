@@ -3,6 +3,7 @@ package com.machucapps.viewmodellivedata
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.machucapps.viewmodellivedata.ui.UserViewModelActivity
 import com.machucapps.viewmodellivedata.ui.ViewModelActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,6 +19,10 @@ class MainActivity : AppCompatActivity() {
     private fun setUpView() {
         btViewModel.setOnClickListener {
             startActivity(Intent(this, ViewModelActivity::class.java))
+        }
+        btUserViewModel.setOnClickListener {
+            startActivity(Intent(this, UserViewModelActivity::class.java))
+
         }
 
     }
