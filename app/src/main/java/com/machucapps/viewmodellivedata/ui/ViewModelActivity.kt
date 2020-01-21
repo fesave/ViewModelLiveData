@@ -3,12 +3,15 @@ package com.machucapps.viewmodellivedata.ui
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import com.machucapps.viewmodellivedata.R
 import com.machucapps.viewmodellivedata.utils.Sumar
+import com.machucapps.viewmodellivedata.viewmodel.SumarViewModel
 import kotlinx.android.synthetic.main.activity_view_model.*
 
 class ViewModelActivity : AppCompatActivity() {
 
+    lateinit var sumarViewModel: SumarViewModel
     private var resultado: Int = 0
     private var TAG = ViewModelActivity::class.java.simpleName
 
@@ -20,10 +23,15 @@ class ViewModelActivity : AppCompatActivity() {
     }
 
     private fun setUpView() {
+        sumarViewModel = ViewModelProviders.of(this).get(SumarViewModel::class.java)
         tvSumar.text = "$resultado"
+        tvSumarViewModel.text = sumarViewModel.resultado.toString()
         btSumar.setOnClickListener {
             resultado = Sumar.sumar(resultado)
             tvSumar.text = "$resultado"
+
+            sumarViewModel.resultado = Sumar.sumar(sumarViewModel.resultado)
+            tvSumarViewModel.text = sumarViewModel.resultado.toString()
         }
     }
 
