@@ -3,6 +3,7 @@ package com.machucapps.viewmodellivedata
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.machucapps.viewmodellivedata.ui.DataBindingActivity
 import com.machucapps.viewmodellivedata.ui.LiveDataActivity
 import com.machucapps.viewmodellivedata.ui.UserViewModelActivity
 import com.machucapps.viewmodellivedata.ui.ViewModelActivity
@@ -27,6 +28,10 @@ class MainActivity : AppCompatActivity() {
         }
         btLiveData.setOnClickListener {
             startActivity(Intent(this, LiveDataActivity::class.java))
+        }
+
+        btDataBinding.setOnClickListener {
+            startActivity(Intent(this, DataBindingActivity::class.java))
         }
 
     }
