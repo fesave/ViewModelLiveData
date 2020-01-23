@@ -1,6 +1,5 @@
 package com.machucapps.viewmodellivedata.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.machucapps.viewmodellivedata.utils.User
@@ -9,12 +8,12 @@ class DBLDViewModel : ViewModel() {
 
     var user: MutableLiveData<User> = MutableLiveData()
 
-    fun getUser(): LiveData<User> {
-        return user
+    fun setUser(user: User) {
+        this.user.value = user
     }
 
-    fun setUser() {
-        val user = User("Laura", "34")
+    fun updateUser() {
+        val user = User("Laura", "27")
         this.user.value = user
     }
 }

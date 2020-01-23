@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.machucapps.viewmodellivedata.R
 import com.machucapps.viewmodellivedata.databinding.ActivityDbldBinding
+import com.machucapps.viewmodellivedata.utils.User
 import com.machucapps.viewmodellivedata.viewmodel.DBLDViewModel
 
 class DBLDActivity : AppCompatActivity() {
@@ -21,6 +22,9 @@ class DBLDActivity : AppCompatActivity() {
 
         viewModel = ViewModelProviders.of(this).get(DBLDViewModel::class.java)
 
+        binding.viewModel = viewModel
 
+        val user = User("Juan", "30")
+        viewModel.setUser(user)
     }
 }
